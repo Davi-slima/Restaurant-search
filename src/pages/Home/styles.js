@@ -18,7 +18,7 @@ export const Search = styled.section`
     flex-direction: column;
     justify-content: center;
     background-color: #FFFF;
-    padding: 25 px;
+    padding: 20px;
 `;
 
 export const Logo = styled.img`
