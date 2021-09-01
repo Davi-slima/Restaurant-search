@@ -1,0 +1,28 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "esmodules": true
+                }
+            }
+        ],
+        "@babel/react"
+    ],
+    "plugins": [
+        "@babel/plugin-propsal-class-properties",
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "."
+                ],
+                "alias": {
+                    "@": "./src/",
+                    "components": "./src/components"
+                }
+            }
+        ]
+    ]
+}
