@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import TextField, { Input } from '@material/react-text-field';
@@ -5,12 +6,13 @@ import MaterialIcon from '@material/react-material-icon';
 
 import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png';
-import { Card, RestaurantCard } from '../../components';
+import { Card, RestaurantCard, Modal } from '../../components';
 
 import { Container, Search, Logo, Wrapper, Map, CarouselTitle, Carousel } from './styles';
 
 const Home = () => {
     const [inputValue, setInputValue] = useState('');
+    const[modalOpened, setModalOpened] = useState(true);
 
     const settings = {
         dots: false,
@@ -49,6 +51,7 @@ const Home = () => {
                 <RestaurantCard />
             </Container>
             <Map />
+            <Modal open = {modalOpened} onClose = {() => setModalOpened(!modalOpened)} />
         </Wrapper>
     );
 };
