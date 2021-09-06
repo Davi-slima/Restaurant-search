@@ -5,7 +5,7 @@ import MaterialIcon from '@material/react-material-icon';
 
 import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png';
-import { Card, RestaurantCard, Map, Modal } from '../../components';
+import { Card, RestaurantCard, Map, Modal, Loader } from '../../components';
 
 import { Container, Search, Logo, Wrapper, CarouselTitle, Carousel, ModalTitle, ModalContent } from './styles';
 
@@ -56,15 +56,19 @@ const Home = () => {
                             onKeyPress={handleKeyPress}
                             onChange={handleChange} />
                     </TextField>
-                    <CarouselTitle>Na sua Área</CarouselTitle>
-                    <Carousel {...settings}>
-                        {restaurants.map((restaurant) => (
-                            <Card
-                                key={restaurant.place_id}
-                                photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante}
-                                title={restaurant.name}
-                            />))}
-                    </Carousel>
+                    {restaurants.length > 0 ? (
+                        <>
+                            <CarouselTitle>Na sua Área</CarouselTitle>
+                            <Carousel {...settings}>
+                                {restaurants.map((restaurant) => (
+                                    <Card
+                                        key={restaurant.place_id}
+                                        photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante}
+                                        title={restaurant.name}
+                                    />))}
+                            </Carousel>
+                        </>
+                    ) : <Loader />}
                 </Search>
                 {restaurants.map((restaurant) => (
                     <RestaurantCard
@@ -77,7 +81,7 @@ const Home = () => {
                 <ModalTitle>{restaurantSelected?.name}</ModalTitle>
                 <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
                 <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
-                <ModalContent>{restaurantSelected?.opening_hours?.isOpen()
+                <ModalContent>{restaurantSelected?.opening_hours?.open_now
                     ? 'Aberto agora'
                     : 'Fechado no momento'}</ModalContent>
             </Modal>
