@@ -5,7 +5,7 @@ import Portal from './Portal';
 
 import { Overlay, Dialog } from './styles';
 
-const Modal = ({ Children, open, onClose }) => {
+const Modal = ({ children, open, onClose }) => {
     useEffect(() => {
         function onEsc(e) {
             if (e.keyCode === 27) onClose();
@@ -29,7 +29,7 @@ const Modal = ({ Children, open, onClose }) => {
     return (
         <Portal>
             <Overlay onClick={onOverlayClick}>
-                <Dialog onClick={onDialogClick}>{Children}</Dialog>
+                <Dialog onClick={onDialogClick}>{children}</Dialog>
             </Overlay>
         </Portal>
     );

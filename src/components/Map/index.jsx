@@ -23,11 +23,11 @@ export const MapContainer = (props) => {
         if (placeId) {
             getRestaurantById(placeId);
         }
-    }, [getRestaurantById, placeId]);
+    }, [placeId]);
 
     function getRestaurantById(placeId) {
         const service = new google.maps.places.PlacesService(map);
-        // dispatch(setRestaurant(null));
+        dispatch(setRestaurant(null));
 
         const request = {
             placeId,
@@ -39,7 +39,7 @@ export const MapContainer = (props) => {
                 dispatch(setRestaurant(place));
             }
         });
-    };
+    }
 
     function searchByQuery(query) {
         const service = new google.maps.places.PlacesService(map);

@@ -60,7 +60,7 @@ export const ModalContent = styled.p`
     margin-bottom: 10px;
     letter-spacing: 0.11px;
     font-family: ${(props) => props.theme.fonts.regular};
-    color: ${(props) => props.color.text};
+    color: ${(props) => props.theme.colors.text};
     font-weight: normal;
     line-height: 19px;
     font-size: 16px;
