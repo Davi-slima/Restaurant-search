@@ -17,7 +17,7 @@ export const MapContainer = (props) => {
         if (query) {
             searchByQuery(query);
         }
-    }, [query, searchByQuery]);
+    }, [query]);
 
     useEffect(() => {
         if (placeId) {
@@ -90,14 +90,14 @@ export const MapContainer = (props) => {
             onRecenter={onMapReady}
             {...props}>
             {restaurants.map((restaurant) => (
-                <Marker
-                    key={restaurant.place_id}
-                    name={restaurant.name}
-                    position={{
-                        lat: restaurant.geometry.location.lat(),
-                        lng: restaurant.geometry.location.lng(),
-                    }}
-                />
+               <Marker
+          key={restaurant.place_id}
+          name={restaurant.name}
+          position={{
+            lat: restaurant.geometry.location.lat(),
+            lng: restaurant.geometry.location.lng(),
+          }}
+        />
             ))}
         </Map>
     );

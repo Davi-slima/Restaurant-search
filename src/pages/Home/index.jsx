@@ -47,8 +47,8 @@ const Home = () => {
                 <Search>
                     <Logo src={logo} alt="Logo do restaurante" />
                     <TextField
-                        outlined
                         label="Pesquisar Restaurantes"
+                        outlined
                         trailingIcon={<MaterialIcon role="button" icon="search" />}
                     ><Input
                             type="text"
@@ -68,7 +68,9 @@ const Home = () => {
                                     />))}
                             </Carousel>
                         </div>
-                    ) : <Loader />}
+                    ) : (
+                        <Loader />
+                    )}
                 </Search>
                 {restaurants.map((restaurant) => (
                     <RestaurantCard
